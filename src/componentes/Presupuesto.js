@@ -4,7 +4,10 @@ class Presupuesto extends Component {
 
     render(){ 
         return(
-            <p>Desde Presupuesto</p>
+            <div className="alert alert-primary">
+                Presupuesto: $ 
+                { this.props.presupuesto}
+            </div>
         )
     }
 }
