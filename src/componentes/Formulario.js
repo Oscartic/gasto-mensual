@@ -16,7 +16,6 @@ class Formulario extends Component {
             cantidadGasto : this.cantidadGasto.current.value 
         }
         
-        console.log(gasto);
         // agregarlo y enviarlo por los pros 
         this.props.agregarGasto(gasto);
 

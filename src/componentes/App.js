@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import Header from './Header';
 import Formulario from './Formulario';
+import Listado from './Listado';
+import { validarPresupuesto } from '../helper';
+import ControlPresupuesto from './ControlPresupuesto';
+
 
 class App extends Component {
 
@@ -11,6 +15,23 @@ class App extends Component {
     gastos: {}
   }
   
+  componentDidMount(){
+    this.obtenerPresupuesto();
+  }
+
+  obtenerPresupuesto = () => {
+    let presupuesto = prompt('Cual es el presupuesto incial?');
+    let resultado= validarPresupuesto(presupuesto);
+    if(resultado){
+      this.setState({
+        presupuesto: presupuesto,
+        restante: presupuesto
+      });
+    } else {
+      this.obtenerPresupuesto();
+    }
+  }
+
   // Agregar un nuevo gasto al state
   agregarGasto = gasto => {
     // tomar una copia del state actual por medio del spreat operator (...)
@@ -42,8 +63,16 @@ class App extends Component {
             </div>
 
             <div className="one-half column">
-          
-            
+              
+              <Listado 
+                gastos = { this.state.gastos }
+              />
+
+              <ControlPresupuesto 
+                
+              />
+
+
             </div>
 
           </div>
