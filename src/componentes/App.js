@@ -60,11 +60,12 @@ class App extends Component {
     // lo restamos 
     restante -= restar;
 
-    console.log(restante);
+    restante = String(restante) 
+
     // agregamos al nuevo state
 
     this.setState({
-      restante 
+      restante
     });
 
   }
